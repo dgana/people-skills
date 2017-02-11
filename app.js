@@ -5,7 +5,22 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cors = require('cors')
-var mongoose = require('mongoose')
+var seeder = require('mongoose-seed')
+var seedData = require('./seed/users')
+
+seeder.connect('mongodb://localhost/people_skills', function() {
+
+  // Load Mongoose model
+  seeder.loadModels([
+    path.join(__dirname, 'models/users.js')
+  ])
+
+  // Clear specified collections
+  seeder.clearModels(['Users'], function() {
+    // Callback to populate DB once collections have been cleared
+    sseder.populateModels(seedData)
+  })
+})
 
 mongoose.connect('mongodb://localhost/people_skills')
 mongoose.Promise = global.Promise
