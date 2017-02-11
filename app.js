@@ -5,22 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cors = require('cors')
-var seeder = require('mongoose-seed')
-var seedData = require('./seed/users')
-
-seeder.connect('mongodb://localhost/people_skills', function() {
-
-  // Load Mongoose model
-  seeder.loadModels([
-    path.join(__dirname, 'models/users.js')
-  ])
-
-  // Clear specified collections
-  seeder.clearModels(['Users'], function() {
-    // Callback to populate DB once collections have been cleared
-    sseder.populateModels(seedData)
-  })
-})
+var mongoose = require('mongoose')
 
 mongoose.connect('mongodb://localhost/people_skills')
 mongoose.Promise = global.Promise
@@ -39,7 +24,9 @@ app.set('view engine', 'ejs');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors())

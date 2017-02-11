@@ -1,5 +1,10 @@
-var express = require('express')
-var router = express.Router()
+const express = require('express')
+const router = express.Router()
+const controller = require('../controllers/user')
 
+router.post('/seed', controller.seed)
+router.get('/', controller.readAll)
+router.get('/:id', controller.readOne)
+router.delete('/:id', controller.delete)
 
 module.exports = router;
