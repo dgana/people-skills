@@ -4,10 +4,7 @@ var Schema = mongoose.Schema
 var userSchema = new Schema({
   name: String,
   skills: [{
-    skill: {
-      type: String,
-      unique: true
-    },
+    skill: String,
     value: Number
   }],
   created_at: Date,
