@@ -15,11 +15,12 @@ module.exports = {
     })
   },
   add: (req, res) => {
-    let objSkill = JSON.parse(req.body.skills)
+    let objSkill = req.body.skills
     let getSkill = objSkill.map((user, index) => {
       return user.skill
     })
-    function checkDuplicate (getSkill) {
+
+    function checkDuplicate(getSkill) {
       return getSkill.length === new Set(getSkill).size
     }
     if (checkDuplicate(getSkill)) {
@@ -33,7 +34,9 @@ module.exports = {
         res.json(user)
       })
     } else {
-      res.json({msg: 'You cannot have a duplicate skill!' })
+      res.json({
+        msg: 'You cannot have a duplicate skill!'
+      })
     }
   }, // [{"skill":"eat", "value": 100},{"skill":"sleep","value": 50}]
   readAll: (req, res) => {
@@ -57,13 +60,11 @@ module.exports = {
   updateSkills: (req, res) => {
     let objSkill = JSON.parse(req.body.skills)
     Users.findByIdAndUpdate(
-      req.params.id,
-      {
+      req.params.id, {
         name: req.body.name,
         skills: objSkill,
         updated_at: new Date()
-      },
-      {
+      }, {
         new: true
       }, (err, result) => {
         if (err) throw err
@@ -73,8 +74,7 @@ module.exports = {
   addSkills: (req, res) => {
     let objSkill = JSON.parse(req.body.skills)
     Users.findByIdAndUpdate(
-      req.params.id,
-      {
+      req.params.id, {
         $push: {
           skills: {
             $each: objSkill,
@@ -83,21 +83,24 @@ module.exports = {
             }
           }
         }
-      }, {new: true}, (err, result) => {
+      }, {
+        new: true
+      }, (err, result) => {
         if (err) throw err
         res.json(result)
       })
   },
   removeSkill: (req, res) => {
     Users.findByIdAndUpdate(
-      req.params.id,
-      {
+      req.params.id, {
         $pull: {
           skills: {
             skill: req.body.skill
           }
         }
-      }, {new: true}, (err, result) => {
+      }, {
+        new: true
+      }, (err, result) => {
         if (err) throw err
         res.json(result)
       })

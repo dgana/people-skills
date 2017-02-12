@@ -1,5 +1,5 @@
 let index = 1
-$('#button_person_skill').click(function (e) {
+$('#button_person_skill').click(function(e) {
   e.preventDefault()
 
   let arr = ['', 'Second', 'Third', 'Fourth', 'Fifth', 'Sixth', 'Seventh', 'Eighth', 'Ninth', 'Tenth']
@@ -11,10 +11,10 @@ $('#button_person_skill').click(function (e) {
       <div class="input-field col s6">
         <select name="value_${index}">
           <option value="" disabled selected>Skill Level</option>
-          <option value="25">Beginner</option>
-          <option value="50">Amateur</option>
-          <option value="75">Advanced</option>
-          <option value="100">Professional</option>
+          <option value="Beginner">Beginner</option>
+          <option value="Amateur">Amateur</option>
+          <option value="Advanced">Advanced</option>
+          <option value="Professional">Professional</option>
         </select>
       </div>
     `
