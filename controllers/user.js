@@ -15,7 +15,7 @@ module.exports = {
     })
   },
   add: (req, res) => {
-    let objSkill = req.body.skills
+    let objSkill = JSON.parse(req.body.skills)
     let getSkill = objSkill.map((user, index) => {
       return user.skill
     })

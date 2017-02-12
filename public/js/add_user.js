@@ -5,6 +5,7 @@ $('#submit_add_user').click(function() {
   })
   let name = arrUserData[0][1]
   // console.log(arrUserData);
+  // console.log(name);
   let userSkills = []
   for (let i = 1; i < arrUserData.length; i += 2) {
     userSkills.push({
@@ -19,7 +20,7 @@ $('#submit_add_user').click(function() {
     dataType: 'json',
     data: {
       name: name,
-      skills: userSkills
+      skills: JSON.stringify(userSkills)
     },
     success: (user) => {
       console.log(user);
