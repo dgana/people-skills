@@ -33,7 +33,7 @@
             <div class="col s12">
               <div class="row">
                 <div class="input-field col s12">
-                  <input placeholder="Input your full name" id="full_name" type="text" class="validate">
+                  <input placeholder="Input your full name" name="name" id="full_name" type="text" class="validate">
                   <label for="full_name">Full Name</label>
                 </div>
               </div>
@@ -54,7 +54,7 @@
                   </div>
                 </div>
                 <div class="row col s12">
-                  <button class="waves-effect waves-light btn" id="button_person_skill"><i class="material-icons left">input</i>Add More Skill</a>
+                  <button class="waves-effect waves-light btn" id="button_person_skill"><i class="material-icons left">note_add</i>Add More Skill</a>
                 </div>
               </div>
             </div>
@@ -62,7 +62,7 @@
         </div>
       </form>
       <div class="modal-footer">
-        <button class="waves-effect waves-light btn" type="submit"><i class="material-icons left">input</i>Submit</button>
+        <button class="waves-effect waves-light btn" type="submit" id="submit_add_user"><i class="material-icons left">input</i>Submit</button>
       </div>
     </div>
 
@@ -73,7 +73,7 @@
         </div>
 
         <div class="row">
-          <a href="#modal" class="waves-effect waves-light btn"><i class="material-icons left">input</i>Add a Person</a>
+          <a href="#modal" class="waves-effect waves-light btn"><i class="material-icons left">note_add</i>Add a Person</a>
         </div>
 
         <table>
@@ -96,5 +96,6 @@
   <script src="js/init.js"></script>
   <script src="js/add_form.js"></script>
   <script src="js/get_users.js"></script>
+  <script src="js/add_user.js"></script>
   </body>
 </html>
