@@ -14,6 +14,28 @@ module.exports = {
       res.json(users)
     })
   },
+  add: (req,res) => {
+    let objSkill = req.body.skills
+    Users.create({
+      name: req.body.name,
+      {
+        $push: {
+          skills: {
+            $each: objSkill,
+            $sort: {
+              value: -1
+            },
+            $slice: objSkill.length
+          }
+        }
+      }
+      created_at: new Date(),
+      updated_at: new Date()
+    }, (err, user) => {
+      if (err) throw err
+      res.json(user)
+    })
+  }, // [{skill: 'eat', value: 100}, {skill: 'sleep', value: 50}]
   readAll: (req, res) => {
     Users.find({}, (err, users) => {
       if (err) throw err
