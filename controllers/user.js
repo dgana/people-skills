@@ -6,7 +6,7 @@ module.exports = {
   seed: (req, res) => {
     mongoose.connection.db.dropCollection('users', (err, result) => {
       if (err) throw err
-      console.log('Dropped collection: users');
+      console.log('Dropped collection: users')
     })
 
     Users.create(seedUsers, (err, users) => {
@@ -14,28 +14,18 @@ module.exports = {
       res.json(users)
     })
   },
-  add: (req,res) => {
-    let objSkill = req.body.skills
+  add: (req, res) => {
+    let objSkill = JSON.parse(req.body.skills)
     Users.create({
       name: req.body.name,
-      {
-        $push: {
-          skills: {
-            $each: objSkill,
-            $sort: {
-              value: -1
-            },
-            $slice: objSkill.length
-          }
-        }
-      }
+      skills: objSkill,
       created_at: new Date(),
       updated_at: new Date()
     }, (err, user) => {
       if (err) throw err
       res.json(user)
     })
-  }, // [{skill: 'eat', value: 100}, {skill: 'sleep', value: 50}]
+  }, // [{"skill":"eat", "value": 100},{"skill":"sleep","value": 50}]
   readAll: (req, res) => {
     Users.find({}, (err, users) => {
       if (err) throw err
@@ -53,5 +43,21 @@ module.exports = {
       if (err) throw error
       res.json(user)
     })
+  },
+  updateSkills: (req, res) => {
+    let objSkill = JSON.parse(req.body.skills)
+    Users.findByIdAndUpdate(
+      req.params.id,
+      {
+        name: req.body.name,
+        skills: objSkill,
+        updated_at: new Date()
+      },
+      {
+        new: true
+      }, (err, result) => {
+        if (err) throw err
+        res.json(result)
+      })
   }
 }

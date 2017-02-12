@@ -7,5 +7,6 @@ router.post('/', controller.add)
 router.get('/', controller.readAll)
 router.get('/:id', controller.readOne)
 router.delete('/:id', controller.delete)
+router.put('/:id', controller.updateSkills)
 
-module.exports = router;
+module.exports = router
