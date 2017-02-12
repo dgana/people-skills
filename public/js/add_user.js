@@ -36,12 +36,39 @@ $('#submit_add_user').click(function() {
           <div class="card-panel teal lighten-2 col s12 add-message">Add user Success!</div>
           `
         )
-        // $('#table_content').append(
-        //   `
-        //
-        //   `
-        //
-        // )
+        $('#table_content').append(
+          `
+          <tr id="row_${i}">
+            <td>${user.name}</td>
+            <td id="assign_skill_${i}"></td>
+            <td id="assign_value_${i}"></td>
+            <td>
+              <div class="row">
+                <button class="waves-effect waves-light red darken-3 btn" onclick="delete_user('${user._id}', ${i})" id="delete_user_${i}"><i class="material-icons left">delete</i>Delete User</button>
+              </div>
+              <div class="row">
+                <button class="waves-effect waves-light blue darken-3 btn" onclick="update_user('${user._id}', ${i})" id="update_user_${i}"><i class="material-icons left">update</i>Update User</button>
+              </div>
+            </td>
+          </tr>
+          `
+        )
+        for (let k = 0; k < user.skills.length; k++) {
+          resultSkills = $('#assign_skill_' + i).append(
+            `
+            <button class="material-icons left fix-button-position" id="delete_${i}_${k}">delete</button>
+            <p id="skill_${i}_${k}">${user.skills[k].skill}</p>
+            `
+          )
+        }
+        for (let j = 0; j < user.skills.length; j++) {
+          resultValue = $('#assign_value_' + i).append(
+            `
+            <p id="value_${i}_${j}">${user.skills[j].value}</p>
+            `
+          )
+        }
+        i++
         console.log('Global Index : ' + i);
 
       }
