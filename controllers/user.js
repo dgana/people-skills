@@ -22,7 +22,6 @@ module.exports = {
     function checkDuplicate (getSkill) {
       return getSkill.length === new Set(getSkill).size
     }
-    // res.send(checkDuplicate(getSkill))
     if (checkDuplicate(getSkill)) {
       Users.create({
         name: req.body.name,
@@ -34,7 +33,7 @@ module.exports = {
         res.json(user)
       })
     } else {
-      res.json({msg: 'You cannot have duplicate skill!' })
+      res.json({msg: 'You cannot have a duplicate skill!' })
     }
   }, // [{"skill":"eat", "value": 100},{"skill":"sleep","value": 50}]
   readAll: (req, res) => {

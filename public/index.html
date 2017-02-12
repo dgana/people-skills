@@ -46,10 +46,10 @@
                   <div class="input-field col s6">
                     <select name="value_0">
                       <option value="" disabled selected>Skill Level</option>
-                      <option value="25">Beginner</option>
-                      <option value="50">Amateur</option>
-                      <option value="75">Advanced</option>
-                      <option value="100">Professional</option>
+                      <option value="Beginner">Beginner</option>
+                      <option value="Amateur">Amateur</option>
+                      <option value="Advanced">Advanced</option>
+                      <option value="Professional">Professional</option>
                     </select>
                   </div>
                 </div>
@@ -81,7 +81,7 @@
           <tr>
             <th>Name</th>
             <th>Skills</th>
-            <th>Value</th>
+            <th>Skill Level</th>
           </tr>
         </thead>
         <tbody id="table_content"></tbody>
@@ -94,78 +94,7 @@
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
   <script src="js/init.js"></script>
-  <script>
-    let index = 1;
-    $('#button_person_skill').click(function(e) {
-      e.preventDefault()
-
-      let arr = ['','Second', 'Third', 'Fourth', 'Fifth', 'Sixth', 'Seventh', 'Eighth', 'Ninth', 'Tenth'];
-      $('#person_skill').append(
-        `
-          <div class="input-field col s6">
-            <input name="skill_${index}" type="text" class="validate" placeholder="Enter your ${arr[index]} Skill">
-          </div>
-          <div class="input-field col s6">
-            <select name="value_${index}">
-              <option value="" disabled selected>Skill Level</option>
-              <option value="25">Beginner</option>
-              <option value="50">Amateur</option>
-              <option value="75">Advanced</option>
-              <option value="100">Professional</option>
-            </select>
-          </div>
-        `
-      )
-      $(`select[name=value_${index}]`).material_select()
-      index++
-    })
-
-    $.ajax({
-      type: 'GET',
-      url: 'http://localhost:3000/api',
-      dataType: 'json',
-      success: (user) => {
-        let iterateUserData = (i, resultUserData) => {
-          resultUserData = $('#table_content').append(
-            `
-            <tr>
-              <td>${user[i].name}</td>
-              <td id="assign_skill_${i}"></td>
-              <td id="assign_value_${i}"></td>
-            </tr>
-            `
-          )
-          return resultUserData
-        }
-        let iterateSkills = (i, resultSkills) => {
-          for(let k = 0; k < user[i].skills.length; k++) {
-            resultSkills = $('#assign_value_'+i).append(
-              `
-              <p>${user[i].skills[k].value}</p>
-              `
-            )
-          }
-          return resultSkills
-        }
-
-        let iterateValue = (i, resultValues) => {
-          for(let j = 0; j < user[i].skills.length; j++) {
-            resultValue = $('#assign_skill_'+i).append(
-              `
-              <p>${user[i].skills[j].skill}</p>
-              `
-            )
-          }
-          return resultValues
-        }
-
-        for(let i = 0; i < user.length; i++) {
-          iterateUserData(i)
-          iterateSkills(i)
-          iterateValue(i)
-        }
-      }
-    })
-  </script>
+  <script src="js/add_form.js"></script>
+  <script src="js/get_users.js"></script>
   </body>
 </html>

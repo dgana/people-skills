@@ -5,7 +5,7 @@ var userSchema = new Schema({
   name: String,
   skills: [{
     skill: String,
-    value: Number
+    value: String
   }],
   created_at: Date,
   updated_at: Date

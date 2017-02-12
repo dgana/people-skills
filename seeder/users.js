@@ -1,30 +1,30 @@
 var data = [{
-    name: 'Ida Bagus Chahya Dhegana',
-    skills: [{
-        skill: 'Coding',
-        value: 80
-      },
-      {
-        skill: 'Hiking',
-        value: 100
-      }
-    ],
-    created_at: new Date(),
-    updated_at: new Date()
+  name: 'Ida Bagus Chahya Dhegana',
+  skills: [{
+    skill: 'Coding',
+    value: 'Beginner'
   },
+    {
+      skill: 'Hiking',
+      value: 'Advanced'
+    }
+  ],
+  created_at: new Date(),
+  updated_at: new Date()
+},
   {
     name: 'Ruby Henjaya',
     skills: [{
-        skill: 'Coding',
-        value: 100
-      },
+      skill: 'Coding',
+      value: 'Professional'
+    },
       {
         skill: 'Futsal',
-        value: 100
+        value: 'Professional'
       },
       {
         skill: 'Teaching',
-        value: 100
+        value: 'Professional'
       }
     ],
     created_at: new Date(),
@@ -33,12 +33,12 @@ var data = [{
   {
     name: 'Windiana Krismanuyar',
     skills: [{
-        skill: 'Coding',
-        value: 100
-      },
+      skill: 'Coding',
+      value: 'Professional'
+    },
       {
         skill: 'Reading',
-        value: 90
+        value: 'Amateur'
       }
     ],
     created_at: new Date(),
@@ -47,21 +47,21 @@ var data = [{
   {
     name: 'Haidar Hanif',
     skills: [{
-        skill: 'Stealth',
-        value: 100
-      },
+      skill: 'Stealth',
+      value: 'Advanced'
+    },
       {
         skill: 'Running',
-        value: 80
+        value: 'Advanced'
       },
       {
         skill: 'Teaching',
-        value: 90
+        value: 'Advanced'
       }
     ],
     created_at: new Date(),
     updated_at: new Date()
   }
-];
+]
 
 module.exports = data
