@@ -10,7 +10,7 @@ $('#button_person_skill').click(function(e) {
       </div>
       <div class="input-field col s6">
         <select name="value_${index}">
-          <option value="" disabled selected>Skill Level</option>
+          <option value="Newbie" selected>Skill Level</option>
           <option value="Beginner">Beginner</option>
           <option value="Amateur">Amateur</option>
           <option value="Advanced">Advanced</option>

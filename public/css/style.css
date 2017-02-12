@@ -5,3 +5,11 @@
 td button:first-child {
   margin-top: 14px;
 }
+
+.add-message {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 17px;
+}

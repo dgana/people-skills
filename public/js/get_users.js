@@ -1,3 +1,5 @@
+let i = 0
+
 $.ajax({
   type: 'GET',
   url: 'http://localhost:3000/api',
@@ -39,7 +41,7 @@ $.ajax({
       return resultValues
     }
 
-    for (let i = 0; i < user.length; i++) {
+    for (i; i < user.length; i++) {
       iterateUserData(i)
       iterateSkills(i)
       iterateValue(i)

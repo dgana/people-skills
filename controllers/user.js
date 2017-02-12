@@ -34,9 +34,7 @@ module.exports = {
         res.json(user)
       })
     } else {
-      res.json({
-        msg: 'You cannot have a duplicate skill!'
-      })
+      res.json('You cannot have a duplicate skill!')
     }
   }, // [{"skill":"eat", "value": 100},{"skill":"sleep","value": 50}]
   readAll: (req, res) => {
