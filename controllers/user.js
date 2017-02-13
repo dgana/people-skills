@@ -1,21 +1,4 @@
 const mongoose = require('mongoose')
-<<<<<<< HEAD
-const seedData = require('../seeder/users')
-const Users = require('../models/users')
-
-module.exports = {
-  seed: function(req,res){
-    // Drop all collections
-    mongoose.connection.db.dropCollection('users', (err, result) => {
-      if (err) throw err;
-      console.log('Dropped collection Users!')
-    })
-
-    Users.create(seedData, (err, users) => {
-      if (err) throw err
-      res.json(users)
-    })
-=======
 const Users = require('../models/users')
 const seedUsers = require('../seeder/users')
 
@@ -126,6 +109,5 @@ module.exports = {
     } else {
       res.send('You dont have access!')
     }
->>>>>>> 110006c73afe9b0b6cb59aa0c76c61e6ef6351fe
   }
 }
