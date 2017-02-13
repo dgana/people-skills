@@ -39,7 +39,7 @@ $('#submit_add_user').click(function() {
         $('#table_content').append(
           `
           <tr id="row_${i}">
-            <td>${user.name}</td>
+            <td id="assign_name_${i}">${user.name}</td>
             <td id="assign_skill_${i}"></td>
             <td id="assign_value_${i}"></td>
             <td>

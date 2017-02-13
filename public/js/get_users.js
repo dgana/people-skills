@@ -5,11 +5,11 @@ let iterateUserData = (i, user, resultUserData) => {
   resultUserData = $('#table_content').append(
     `
     <tr id="row_${i}">
-      <td>${user[i].name}</td>
+      <td id="assign_name_${i}">${user[i].name}</td>
       <td id="assign_skill_${i}"></td>
       <td id="assign_value_${i}"></td>
       <td>
-        <div class="row">
+        <div class="row" style="margin-bottom:-8px;">
         <button class="waves-effect waves-light red darken-3 btn" onclick="delete_user('${userIDs[i]}', ${i})" id="delete_user_${i}"><i class="material-icons left">delete</i>Delete User</button>
         </div>
         <div class="row">
