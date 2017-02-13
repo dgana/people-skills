@@ -56,7 +56,7 @@ $('#submit_add_user').click(function() {
         for (let k = 0; k < user.skills.length; k++) {
           resultSkills = $('#assign_skill_' + i).append(
             `
-            <button class="material-icons left fix-button-position" id="delete_${i}_${k}">delete</button>
+            <button class="material-icons left fix-button-position" onclick="delete_skill('${user._id}', ${i}, ${k})" id="delete_${i}_${k}">delete</button>
             <p id="skill_${i}_${k}">${user.skills[k].skill}</p>
             `
           )
