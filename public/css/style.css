@@ -13,3 +13,15 @@ td button:first-child {
   color: white;
   font-size: 17px;
 }
+
+th:first-child {
+  width: 30%;
+}
+
+th:nth-child(2) {
+  width: 20%;
+}
+
+th:nth-child(3) {
+  width: 25%;
+}

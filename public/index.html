@@ -25,7 +25,7 @@
       </div>
     </nav>
 
-    <!-- Modal Structure -->
+    <!-- Modal Add -->
     <div id="modal" class="modal modal-fixed-footer">
       <form id="input_new_user">
         <div class="modal-content">
@@ -69,22 +69,21 @@
       </div>
     </div>
 
+    <!-- Modal Update -->
     <div id="modal_update" class="modal modal-fixed-footer">
-      <form id="input_new_user">
+      <form id="update_user_form">
         <div class="modal-content">
           <div class="row">
             <div class="col s12">
               <div class="row">
                 <div class="input-field col s12">
-                  <input placeholder="Input your full name" name="name" id="full_name" type="text" class="validate">
-                  <label for="full_name">Full Name</label>
+                  <input placeholder="Input your full name" name="name" id="full_name_update" type="text" class="validate">
+                  <label for="full_name_update">Full Name</label>
                 </div>
               </div>
-              <div class="row"  id="add_message">
-
-              </div>
+              <div class="row"  id="update_message"></div>
               <div class="row">
-                <div class="" id="person_skill">
+                <div class="" id="person_skill_update">
                   <div class="input-field col s6">
                     <input name="skill_0" type="text" class="validate" placeholder="What is your skill?">
                     <label for="skills">Skills</label>
@@ -100,7 +99,7 @@
                   </div>
                 </div>
                 <div class="row col s12">
-                  <button class="waves-effect waves-light btn" id="button_person_skill"><i class="material-icons left">note_add</i>Add More Skill</a>
+                  <button class="waves-effect waves-light btn" id="button_person_skill_update"><i class="material-icons left">note_add</i>Add More Skill</a>
                 </div>
               </div>
             </div>
@@ -108,7 +107,7 @@
         </div>
       </form>
       <div class="modal-footer">
-        <button class="waves-effect waves-light btn" type="submit" id="submit_add_user"><i class="material-icons left">input</i>Submit</button>
+        <button class="waves-effect waves-light btn" type="submit" id="submit_update_user"><i class="material-icons left">input</i>Submit</button>
       </div>
     </div>
 
