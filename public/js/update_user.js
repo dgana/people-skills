@@ -26,11 +26,11 @@ const update_user = (id, i) => {
     }
     console.log(userSkills);
     console.log(name);
-    console.log(userIDs[i]);
+    console.log(id);
 
     $.ajax({
       type: "PUT",
-      url: 'http://localhost:3000/api/'+userIDs[i],
+      url: 'http://localhost:3000/api/'+id,
       dataType: 'json',
       data: {
         name: name,
@@ -69,7 +69,7 @@ const update_user = (id, i) => {
           for (let k = 0; k < user.skills.length; k++) {
             resultSkills = $('#assign_skill_' + i).append(
               `
-              <button class="material-icons left fix-button-position" id="delete_${i}_${k}">delete</button>
+              <button class="material-icons left fix-button-position" onclick="delete_skill('${user._id}', ${i}, ${k})" id="delete_${i}_${k}">delete</button>
               <p id="skill_${i}_${k}">${user.skills[k].skill}</p>
               `
             )
@@ -83,6 +83,10 @@ const update_user = (id, i) => {
           }
           console.log('Global Index : ' + i);
         }
+
+        setTimeout(function(){
+          $('#update_message').html('')
+        }, 2500)
       }
     })
 

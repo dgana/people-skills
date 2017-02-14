@@ -47,7 +47,7 @@ $('#submit_add_user').click(function() {
                 <button class="waves-effect waves-light red darken-3 btn" onclick="delete_user('${user._id}', ${i})" id="delete_user_${i}"><i class="material-icons left">delete</i>Delete User</button>
               </div>
               <div class="row">
-                <button class="waves-effect waves-light blue darken-3 btn" style="margin-top:-18px;" onclick="update_user('${user._id}', ${i})" id="update_user_${i}"><i class="material-icons left">update</i>Update User</button>
+                <button class="waves-effect waves-light blue darken-3 btn" style="margin-top:-18px;" onclick="update_user('${user._id}', ${i})" id="update_user_${i}" data-target="modal_update"><i class="material-icons left">update</i>Update User</button>
               </div>
             </td>
           </tr>
@@ -70,9 +70,11 @@ $('#submit_add_user').click(function() {
         }
         i++
         console.log('Global Index : ' + i);
-
       }
 
+      setTimeout(function(){
+        $('#add_message').html('')
+      }, 2500)
     }
   })
 })

@@ -7,10 +7,13 @@ const delete_user = (id, i) => {
     success: (data) => {
       $('#global_message').html(
         `
-        <div class="card-panel teal lighten-2 col s12 add-message">Delete user Success!</div>
+        <div class="card-panel red darken-2 col s12 add-message">Delete user Success!</div>
         `
       )
       $('#row_'+i).remove();
+      setTimeout(function(){
+        $('#global_message').html('')
+      }, 2500)
     }
   })
 }
