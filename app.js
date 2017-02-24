@@ -10,6 +10,12 @@ var mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/people_skills')
 mongoose.Promise = global.Promise
 
+var db = mongoose.connection
+db.on('error', console.error.bind(console, 'connection error:'))
+db.once('open', function () {
+  console.log('Database Connected')
+})
+
 var index = require('./routes/index')
 var users = require('./routes/users')
 var api = require('./routes/api')
